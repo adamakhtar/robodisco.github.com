@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
 
-  <title><![CDATA[My Octopress Blog]]></title>
+  <title><![CDATA[Robodisco]]></title>
   <link href="http://robodisco.github.com/atom.xml" rel="self"/>
   <link href="http://robodisco.github.com/"/>
-  <updated>2012-02-05T21:32:45+09:00</updated>
+  <updated>2012-02-05T21:46:48+09:00</updated>
   <id>http://robodisco.github.com/</id>
   <author>
-    <name><![CDATA[Your Name]]></name>
+    <name><![CDATA[Adam Akhtar]]></name>
     
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
