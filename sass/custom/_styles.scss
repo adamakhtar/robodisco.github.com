@@ -1,22 +1,2 @@
 // This File is imported last, and will override other styles in the cascade
 // Add styles here to make changes without digging in too much
-@import "typography.scss";
-
-body header hgroup {
-  width: 22em;
-  margin: 0px auto;
-  text-align: center;
-  position: relative;
-}
-body header h1 {
-  display: inline-block;
-  text-transform: uppercase;
-  font-size: 7em;
-  padding-bottom: 0px;
-}
-
-body header h2 {
-  position: relative;
-  top: -1.3em;
-  
-}
