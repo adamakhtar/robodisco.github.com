@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: Ruby | ROBODISCO]]></title>
+  <link href="http://robodisco.github.com/blog/categories/ruby/atom.xml" rel="self"/>
+  <link href="http://robodisco.github.com/"/>
+  <updated>2012-08-03T12:23:54+09:00</updated>
+  <id>http://robodisco.github.com/</id>
+  <author>
+    <name><![CDATA[Adam Akhtar]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[Ruby's double bangs !!]]></title>
+    <link href="http://robodisco.github.com/blog/2012/06/06/rubys-double-bang-ls/"/>
+    <updated>2012-06-06T20:58:00+09:00</updated>
+    <id>http://robodisco.github.com/blog/2012/06/06/rubys-double-bang-ls</id>
+    <content type="html"><![CDATA[<p>Ever seen the use of the bang operator ! like this?</p>
+
+<p><code>
+def signed_in?
+  !!current_user
+end
+</code></p>
+
+<p>and wondered why? After all it looks like it's simply negating the original value and then reversing it again to bring it back to its orignal true false value. So why bother? Why not just write</p>
+
+<p><code>
+def signed_in?
+  current_user
+end
+</code></p>
+
+<p>The problem with the last snippet is that it doesnt return a true or false value. It returns a User object. And further down the line there may be code that expects only a boolean value of true false.</p>
+
+<p>e.g.</p>
+
+<p><code>logged_in = signed_in? #logged_in isnt true or false, its a User object</code></p>
+
+<p>whilst Ruby happily converts objects to their boolean value in conditional statments</p>
+
+<p><code>if signed_in?</code></p>
+
+<p>You may have written some code that doesn't and assumes it's always dealing strictly with boolean values. False assumptions like that can cause bugs or worse <strong>BOOM!</strong>.</p>
+
+<p>So the best way to prevent this is to ensure methods like the above only ever return true or false - and nothing else.</p>
+
+<p>So how does !! acomplish that.</p>
+
+<p>Lets take a look at a string. In ruby a string with a value is considered to have a boolean value of true.</p>
+
+<p>str = "Hello"  ==>  <strong>true</strong></p>
+
+<p>If we use !str, ruby converts the obj into a boolean value true and <strong>then</strong> negates it to return <strong>false</strong></p>
+
+<p>If we use another bang and negate one more time, the boolean value will be negated again and the boolean value <strong>true</strong> will be returned.</p>
+
+<p>So by using two !! bangs we <strong>ensure</strong> we get an object's <strong>boolean value</strong>.</p>
+]]></content>
+  </entry>
+  
+</feed>

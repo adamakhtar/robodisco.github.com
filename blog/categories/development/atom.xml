@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: Development | ROBODISCO]]></title>
+  <link href="http://robodisco.github.com/blog/categories/development/atom.xml" rel="self"/>
+  <link href="http://robodisco.github.com/"/>
+  <updated>2012-08-03T12:23:54+09:00</updated>
+  <id>http://robodisco.github.com/</id>
+  <author>
+    <name><![CDATA[Adam Akhtar]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[Setting up Heroku to use your custom domain]]></title>
+    <link href="http://robodisco.github.com/blog/2012/04/30/setting-up-heroku-to-use-your-custom-domain/"/>
+    <updated>2012-04-30T22:08:00+09:00</updated>
+    <id>http://robodisco.github.com/blog/2012/04/30/setting-up-heroku-to-use-your-custom-domain</id>
+    <content type="html"><![CDATA[<p>In this post I'll explain how to:</p>
+
+<ul>
+<li>Setup your heroku app to use your own custom domain</li>
+<li>Redirect requests from yourdomain.com to www.yourdomain.com and why it's important</li>
+</ul>
+
+
+<h1>Heroku and Custom Domains</h1>
+
+<p>You just wrote your new social network for hamsters called Hamsterville and have successfully pushed it to Heroku where it sits at www.hamsterville.heroku.com. All's good but except for the long url so you go and buy hamsterville.com from a site such as GoDaddy with the intent to use that instead.</p>
+
+<!-- more -->
+
+
+<h2>Specify your domains in your heroku app</h2>
+
+<p>First you'll need to tell Heroku about this new domain. So in your console, in your apps directory run</p>
+
+<p><code>
+heroku domains:add www.hamsterville.com
+</code></p>
+
+<p>and it will link it to your app. You can multiple domains (and we will do later).</p>
+
+<p>At any time you can view the domains you have added to a particular app by running</p>
+
+<p><code>
+heroku domains
+</code></p>
+
+<p>Similiary if you wish to remove a domain ( perhaps because you mistyped it when adding it) run</p>
+
+<p><code>
+heroku domains:remove www.hamsterrrrrville.com
+</code></p>
+
+<h2>Configure DNS servers</h2>
+
+<p>Next you have to configure the DNS servers. Thankfully due to a free Heroku add on this is a lot simpler than it sounds.</p>
+
+<p>Zerigo DNS kindly provide a free service in the form of a free heroku add-on to make  setup easier. To start using it you simply need to run in your console</p>
+
+<p><code>
+heroku addons:add zerigo_dns:basic
+</code></p>
+
+<p>After you need to go to your domain registrar where you bought the custom domain - in this case GoDaddy.com.- Log into your account and go to management options for your custom domain and configure it to use Zerigos servers. Simple replace with the following Zerigo server addresses</p>
+
+<p><code>
+a.ns.zerigo.net
+b.ns.zerigo.net
+c.ns.zerigo.net
+d.ns.zerigo.net
+e.ns.zerigo.net
+</code></p>
+
+<p>Once saved you can verify all is well by running in your console ( Unix based systems only )</p>
+
+<p><code>
+dig ns yourdomain.com  
+</code></p>
+
+<p>where you should see the above 5 addresses in the long output. HOWEVER you may have to wait a while ( several minutes, couple of hours or even a whole day) before the changes you made come into effect.</p>
+
+<p>Now you can access hamsterville by typing</p>
+
+<p>www.hamsterville.com into your address bar. All done? Not quite.</p>
+
+<h1>Redirecting hamsterville.com to www.hamsterville.com</h1>
+
+<p>All's great typing www.hamsterville.com but if you try the "naked domain" version in your browser i.e. just hamsterville.com you will notice that the request will fail.</p>
+
+<p>What you want to happen when a user goes to hamsterville.com is for the user to be redirected to www.hamsterville.com automatically.</p>
+
+<p>To do so first you need to tell heroku about your naked domain with the command we ran above</p>
+
+<p><code>
+heroku domains:add hamsterville.com
+</code></p>
+
+<p>running</p>
+
+<p><code>
+heroku domains
+</code></p>
+
+<p>should show both hamsterville.com and www.hamsterville.com</p>
+
+<p>Second you need to tell Zerigo to do this redirection</p>
+
+<p>To access zerigos settings
+* login to your account on the heroku website.
+* click on "My Apps" i.e. hamsterville
+* click on "Add-ons" in the top right selecting "Zerigo-DNS" and then "Configure"</p>
+
+<p>You'll be logged automatically into Zerigo's dashboard.</p>
+
+<p>Now to redirect
+* Under the Hosts tab click add
+* Leave the first field for host empty.
+* Under the Type dropdown select 'redirect'
+* In 'Data' enter the full www domain name i.e. http://www.hamsterville.com
+* Save.</p>
+
+<p>Now users can access your hamster social network from either hamsterville.com or www.hamsterville.com</p>
+
+<h1>Notes</h1>
+
+<p>Can't I do this the other way round? Can't I make hamsterville.com point to my app and make www.hamsterville.com redirect to it?</p>
+
+<p>According to Heroku that isn't such a good idea. You want the www version to be the big daddy here. You can read more about that and why here</p>
+
+<p>https://devcenter.heroku.com/articles/avoiding-naked-domains-dns-arecords</p>
+
+<p>Why don't I just make both domains point to the app instead of all this linking malarky?</p>
+
+<p>For SEO reasons you shouldn't do this. Search engines would treat both domains as two different websites despite there only being one. And if they think they're two different websites then they will come to the wrong conclusion that your content is being duplicated. Duplicating content was an old school way to game the search engine system so rules have been put in place to penalize such behaviour. Thus your website would be bansished into the lower ranks of search results.</p>
+]]></content>
+  </entry>
+  
+</feed>
