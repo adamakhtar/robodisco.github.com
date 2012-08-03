@@ -5,7 +5,7 @@
 <!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
 <head>
   <meta charset="utf-8">
-  <title>ROBODISCO</title>
+  <title>CSS - How to mix fixed height elements with an expanding element - ROBODISCO</title>
   <meta name="author" content="Adam Akhtar">
 
   
@@ -18,7 +18,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   
-  <link rel="canonical" href="http://robodisco.github.com/">
+  <link rel="canonical" href="http://robodisco.github.com/blog/2012/07/16/css-how-to-mix-fixed-height-elements-with-an-expanding-element/">
   <link href="/favicon.png" rel="icon">
   <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
   <script src="/javascripts/modernizr-2.0.js"></script>
@@ -62,15 +62,12 @@
 </nav>
   <div id="main">
     <div id="content">
-      <div class="blog-index">
+      <div>
+<article class="hentry" role="article">
   
-  
-  
-    <article>
-      
   <header>
     
-      <h1 class="entry-title"><a href="/blog/2012/07/16/css-how-to-mix-fixed-height-elements-with-an-expanding-element/">CSS - How to Mix Fixed Height Elements With an Expanding Element</a></h1>
+      <h1 class="entry-title">CSS - How to Mix Fixed Height Elements With an Expanding Element</h1>
     
     
       <p class="meta">
@@ -93,7 +90,7 @@
   </header>
 
 
-  <div class="entry-content"><p>You want to create a page which comprises of a header and footer of fixed height in pixels and then inbetween some content which will expand to fill the remaining screen space now and any time the user resizes the browswer.</p>
+<div class="entry-content"><p>You want to create a page which comprises of a header and footer of fixed height in pixels and then inbetween some content which will expand to fill the remaining screen space now and any time the user resizes the browswer.</p>
 
 <p>Sounds easy, just set the header and footers to height: 26px and the content-holder to 100%.</p>
 
@@ -150,102 +147,16 @@
 
 <p>a</p>
 </div>
-  
-  
 
 
-    </article>
-  
-  
-    <article>
+  <footer>
+    <p class="meta">
       
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/2012/06/06/rubys-double-bang-ls/">Ruby&#8217;s Double Bangs !!</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
   
 
+<span class="byline author vcard">Posted by <span class="fn">Adam Akhtar</span></span>
 
-<time datetime="2012-06-06T20:58:00+09:00" pubdate data-updated="true">Jun 6<span>th</span>, 2012</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>Ever seen the use of the bang operator ! like this?</p>
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>def signed_in?
-</span><span class='line'>  !!current_user
-</span><span class='line'>end</span></code></pre></td></tr></table></div></figure>
-
-
-<p>and wondered why? After all it looks like it&#8217;s simply negating the original value and then reversing it again to bring it back to its orignal true false value. So why bother? Why not just write</p>
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>def signed_in?
-</span><span class='line'>  current_user
-</span><span class='line'>end</span></code></pre></td></tr></table></div></figure>
-
-
-<p>The problem with the last snippet is that it doesnt return a true or false value. It returns a User object. And further down the line there may be code that expects only a boolean value of true false.</p>
-
-<p>e.g.</p>
-
-<p><code>logged_in = signed_in? #logged_in isnt true or false, its a User object</code></p>
-
-<p>whilst Ruby happily converts objects to their boolean value in conditional statments</p>
-
-<p><code>if signed_in?</code></p>
-
-<p>You may have written some code that doesn&#8217;t and assumes it&#8217;s always dealing strictly with boolean values. False assumptions like that can cause bugs or worse <strong>BOOM!</strong>.</p>
-
-<p>So the best way to prevent this is to ensure methods like the above only ever return true or false - and nothing else.</p>
-
-<p>So how does !! acomplish that.</p>
-
-<p>Lets take a look at a string. In ruby a string with a value is considered to have a boolean value of true.</p>
-
-<p>str = &#8220;Hello&#8221;  ==>  <strong>true</strong></p>
-
-<p>If we use !str, ruby converts the obj into a boolean value true and <strong>then</strong> negates it to return <strong>false</strong></p>
-
-<p>If we use another bang and negate one more time, the boolean value will be negated again and the boolean value <strong>true</strong> will be returned.</p>
-
-<p>So by using two !! bangs we <strong>ensure</strong> we get an object&#8217;s <strong>boolean value</strong>.</p>
-</div>
-  
-  
-
-
-    </article>
-  
-  
-    <article>
       
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/2012/04/30/setting-up-heroku-to-use-your-custom-domain/">Setting Up Heroku to Use Your Custom Domain</a></h1>
-    
-    
-      <p class="meta">
-        
 
 
 
@@ -257,42 +168,32 @@
   
 
 
-<time datetime="2012-04-30T22:08:00+09:00" pubdate data-updated="true">Apr 30<span>th</span>, 2012</time>
-        
-      </p>
+<time datetime="2012-07-16T01:07:00+09:00" pubdate data-updated="true">Jul 16<span>th</span>, 2012</time>
+      
+
+
+    </p>
     
-  </header>
+      <div class="sharing">
+  
+  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://robodisco.github.com/blog/2012/07/16/css-how-to-mix-fixed-height-elements-with-an-expanding-element/" data-via="robodisco" data-counturl="http://robodisco.github.com/blog/2012/07/16/css-how-to-mix-fixed-height-elements-with-an-expanding-element/" >Tweet</a>
+  
+  
+  
+</div>
 
-
-  <div class="entry-content"><p>In this post I&#8217;ll explain how to:</p>
-
-<ul>
-<li>Setup your heroku app to use your own custom domain</li>
-<li>Redirect requests from yourdomain.com to www.yourdomain.com and why it&#8217;s important</li>
-</ul>
-
-
-<h1>Heroku and Custom Domains</h1>
-
-<p>You just wrote your new social network for hamsters called Hamsterville and have successfully pushed it to Heroku where it sits at www.hamsterville.heroku.com. All&#8217;s good but except for the long url so you go and buy hamsterville.com from a site such as GoDaddy with the intent to use that instead.</p>
+    
+    <p class="meta">
+      
+        <a class="basic-alignment left" href="/blog/2012/06/06/rubys-double-bang-ls/" title="Previous Post: Ruby's double bangs !!">&laquo; Ruby's double bangs !!</a>
+      
+      
+    </p>
+  </footer>
+</article>
 
 </div>
-  
-  
-    <footer>
-      <a rel="full-article" href="/blog/2012/04/30/setting-up-heroku-to-use-your-custom-domain/">Read on &rarr;</a>
-    </footer>
-  
 
-
-    </article>
-  
-  <div class="pagination">
-    
-    <a href="/blog/archives">Blog Archives</a>
-    
-  </div>
-</div>
 <aside class="sidebar">
   
     <section>
@@ -304,7 +205,7 @@
       </li>
     
       <li class="post">
-        <a href="/blog/2012/06/06/rubys-double-bang-ls/">Ruby&#8217;s double bangs !!</a>
+        <a href="/blog/2012/06/06/rubys-double-bang-ls/">Ruby's double bangs !!</a>
       </li>
     
       <li class="post">
@@ -318,7 +219,7 @@
 <section>
   <h1>Latest Tweets</h1>
   <ul id="tweets">
-    <li class="loading">Status updating&#8230;</li>
+    <li class="loading">Status updating...</li>
   </ul>
   <script type="text/javascript">
     $.domReady(function(){
@@ -337,6 +238,7 @@
 
   
 </aside>
+
 
     </div>
   </div>

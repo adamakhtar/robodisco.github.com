@@ -4,7 +4,7 @@
   <title><![CDATA[ROBODISCO]]></title>
   <link href="http://robodisco.github.com/atom.xml" rel="self"/>
   <link href="http://robodisco.github.com/"/>
-  <updated>2012-08-03T12:23:54+09:00</updated>
+  <updated>2012-08-03T12:29:13+09:00</updated>
   <id>http://robodisco.github.com/</id>
   <author>
     <name><![CDATA[Adam Akhtar]]></name>
@@ -12,6 +12,70 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[CSS - How to mix fixed height elements with an expanding element]]></title>
+    <link href="http://robodisco.github.com/blog/2012/07/16/css-how-to-mix-fixed-height-elements-with-an-expanding-element/"/>
+    <updated>2012-07-16T01:07:00+09:00</updated>
+    <id>http://robodisco.github.com/blog/2012/07/16/css-how-to-mix-fixed-height-elements-with-an-expanding-element</id>
+    <content type="html"><![CDATA[<p>You want to create a page which comprises of a header and footer of fixed height in pixels and then inbetween some content which will expand to fill the remaining screen space now and any time the user resizes the browswer.</p>
+
+<p>Sounds easy, just set the header and footers to height: 26px and the content-holder to 100%.</p>
+
+<p>Wrong! Let&#8217;s assume the browser&#8217;s body is currently 900px high.</p>
+
+<p>Setting content-holder to 100% height means 100% height of it&#8217;s parent, body in this case, so content-holder is equal to 900px. Add the header and footer heights and the total expands beyond the body height and so the footer will be pushed out of sight.</p>
+
+<p>Attempt 2 Take the header and footers height into account when setting the height&#8217;s percentage.</p>
+
+<p>Fail! You cant set content-holder&#8217;s height to 100% - 50px. That&#8217;s just not possible in CSS.</p>
+
+<p>Soloution</p>
+
+<p>Absolutely position the 3 elements.</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+</pre></td><td class='code'><pre><code class='css'><span class='line'><span class="nf">#header</span> <span class="p">{</span>
+</span><span class='line'>  <span class="k">position</span><span class="o">:</span> <span class="k">absolute</span><span class="p">;</span>
+</span><span class='line'>  <span class="k">top</span><span class="o">:</span><span class="m">0px</span><span class="p">;</span>
+</span><span class='line'>  <span class="k">height</span><span class="o">:</span> <span class="m">25px</span><span class="p">;</span>
+</span><span class='line'><span class="p">}</span>
+</span><span class='line'>
+</span><span class='line'><span class="nf">#footer</span> <span class="p">{</span>
+</span><span class='line'>  <span class="k">position</span><span class="o">:</span> <span class="k">absolute</span><span class="p">;</span>
+</span><span class='line'>  <span class="k">bottom</span><span class="o">:</span> <span class="m">0px</span><span class="p">;</span>
+</span><span class='line'>  <span class="k">height</span><span class="o">:</span> <span class="m">25px</span><span class="p">;</span>
+</span><span class='line'><span class="p">}</span>
+</span><span class='line'>
+</span><span class='line'><span class="nf">#content-holder</span> <span class="p">{</span>
+</span><span class='line'>  <span class="k">position</span><span class="o">:</span> <span class="k">absolute</span><span class="p">;</span>
+</span><span class='line'>  <span class="k">top</span><span class="o">:</span> <span class="m">25px</span><span class="p">;</span>
+</span><span class='line'>  <span class="k">bottom</span><span class="o">:</span> <span class="m">25px</span><span class="p">;</span>
+</span><span class='line'>  <span class="k">overflow-y</span><span class="o">:</span> <span class="k">auto</span><span class="p">;</span>
+</span><span class='line'><span class="p">}</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>a</p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Ruby's double bangs !!]]></title>
